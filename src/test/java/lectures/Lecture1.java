@@ -22,7 +22,6 @@ public class Lecture1 {
     List<Person> people = MockData.getPeople();
     // 1. Find people aged less or equal 18
     // 2. Then change implementation to find first 10 people
-
     List<Person> youngPeople = new ArrayList<>();
 
     final int LIMIT = 10;
@@ -43,5 +42,10 @@ public class Lecture1 {
   @Test
   public void declarativeApproachUsingStreams() throws Exception {
     ImmutableList<Person> people = MockData.getPeople();
+    List<Person> youngPeople = people.stream()
+        .filter(person -> person.getAge() <= 18)
+        .limit(10)
+        .collect(Collectors.toList());
+    youngPeople.forEach(young -> System.out.printf("%2d %s%n", young.getAge(), young.getFirstName()));
   }
 }
