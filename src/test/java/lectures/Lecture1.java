@@ -6,6 +6,7 @@ import beans.Person;
 
 import com.google.common.collect.ImmutableList;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,6 +23,27 @@ public class Lecture1 {
     // 1. Find people aged less or equal 18
     // 2. Then change implementation to find first 10 people
 
+    List<Person> youngPeople = new ArrayList<>();
+
+    final int LIMIT = 10;
+    int counter = 0;
+    for (Person person : people) {
+      if (person.getAge() <= 18) {
+        youngPeople.add(person);
+        counter++;
+        if (counter == LIMIT) {
+          break;
+        }
+      }
+    }
+    for (Person young : youngPeople) {
+      // Only adds a blank space to the ages of 1 digit for better visualization in console
+      if (Integer.toString(young.getAge()).length() == 1) {
+        System.out.println(" "+young.getAge()+" "+young.getFirstName());
+      } else {// if the length of the age is 2 digits, then does not add the initial space
+        System.out.println(young.getAge()+" "+young.getFirstName());
+      }
+    }
   }
 
   @Test
