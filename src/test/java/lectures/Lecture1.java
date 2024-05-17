@@ -31,24 +31,17 @@ public class Lecture1 {
       if (person.getAge() <= 18) {
         youngPeople.add(person);
         counter++;
-        if (counter == LIMIT) {
-          break;
-        }
+        if (counter == LIMIT) break;//breaks the for loop when counter reach the LIMIT
       }
     }
     for (Person young : youngPeople) {
-      // Only adds a blank space to the ages of 1 digit for better visualization in console
-      if (Integer.toString(young.getAge()).length() == 1) {
-        System.out.println(" "+young.getAge()+" "+young.getFirstName());
-      } else {// if the length of the age is 2 digits, then does not add the initial space
-        System.out.println(young.getAge()+" "+young.getFirstName());
-      }
+      if (Integer.toString(young.getAge()).length() == 1) System.out.println(" "+young.getAge()+" "+young.getFirstName()); // Only adds a blank space to the ages of 1 digit for better visualization in console
+      else System.out.println(young.getAge()+" "+young.getFirstName()); // if the length of the age is 2 digits, then does not add the initial space
     }
   }
 
   @Test
   public void declarativeApproachUsingStreams() throws Exception {
     ImmutableList<Person> people = MockData.getPeople();
-
   }
 }
