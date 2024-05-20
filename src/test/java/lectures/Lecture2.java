@@ -10,7 +10,16 @@ public class Lecture2 {
 
   @Test
   public void range() throws Exception {
+    System.out.println("For i");
+    for (int i = 0; i <= 10; i++) {
+      System.out.println(i);
+    }
 
+    System.out.println("InStream .range Exclusive");
+    IntStream.range(0,10).forEach(System.out::println);
+
+    System.out.println("IntStream .rangeClosed Inclusive");
+    IntStream.rangeClosed(0,10).forEach(System.out::println);
   }
 
   @Test
