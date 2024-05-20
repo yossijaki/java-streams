@@ -2,6 +2,7 @@ package lectures;
 
 import beans.Person;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import mockdata.MockData;
 import org.junit.Test;
@@ -25,7 +26,8 @@ public class Lecture2 {
   @Test
   public void rangeIteratingLists() throws Exception {
     List<Person> people = MockData.getPeople();
-
+    IntStream.range(0, people.size())
+        .forEach(index -> { Person person = people.get(index); System.out.printf("%2d %s%n", person.getAge(), person.getFirstName()); });
   }
 
   @Test
