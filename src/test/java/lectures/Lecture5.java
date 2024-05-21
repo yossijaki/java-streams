@@ -31,7 +31,6 @@ public class Lecture5 {
   @Test
   public void averageCarPrice() throws Exception {
     // calculate average of car prices
-
   }
 
   @Test
